@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">debt</string>
+    <string name="persons">persons</string>
+    <string name="profits">profits</string>
+    <string name="settings">settings</string>
+    <string name="name">name</string>
+    <string name="from">from</string>
+    <string name="amount">amount</string>
+    <string name="why">why</string>
+    <string name="payment_settings">payment settings</string>
+    <string name="currency">currency</string>
+    <string name="general">general</string>
+    <string name="delete">delete</string>
+
+    <string-array name="currencies">
+        <item>€</item>
+        <item>$</item>
+        <item>£</item>
+        <item>ƒ</item>
+        <item>₣</item>
+        <item>₧</item>
+        <item>₱</item>
+        <item>₹</item>
+        <item>₽</item>
+        <item>₺</item>
+        <item>¥</item>
+    </string-array>
+</resources>
