@@ -6,7 +6,7 @@ import java.util.List;
 public class Profits {
     private List<Profit> profits;
 
-    Profits(){
+    public Profits() {
         profits = new ArrayList<>();
     }
 
@@ -14,29 +14,29 @@ public class Profits {
         return profits;
     }
 
-    Profit add(double amount, String why){
+    public Profit add(double amount, String why) {
         Profit p = new Profit(amount, why);
         profits.add(p);
         return p;
     }
 
-    Profit get(int i){
+    public Profit get(int i) {
         return profits.get(i);
     }
 
-    void add(Profit p){
+    public void add(Profit p) {
         profits.add(p);
     }
 
-    void remove(Profit p){
+    public void remove(Profit p) {
         profits.remove(p);
     }
 
-    int size(){
+    public int size() {
         return profits.size();
     }
 
-    double getSum(){
+    public double getSum() {
         double s = 0;
         for(Profit p : profits)
             s += p.getAmount();

@@ -42,11 +42,11 @@ public class Persons {
         for(Person p : persons) p.save();
     }
 
-    Person get(int i){
+    public Person get(int i) {
         return persons.get(i);
     }
 
-    int size(){
+    public int size() {
         return persons.size();
     }
 }

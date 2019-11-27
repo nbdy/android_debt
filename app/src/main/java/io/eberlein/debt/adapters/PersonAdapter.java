@@ -1,4 +1,4 @@
-package io.eberlein.debt;
+package io.eberlein.debt.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -18,6 +18,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
+import io.eberlein.debt.Person;
+import io.eberlein.debt.Persons;
+import io.eberlein.debt.R;
+import io.eberlein.debt.Static;
+import io.eberlein.debt.Utils;
 import io.eberlein.debt.events.PersonDeletedEvent;
 import io.eberlein.debt.ui.PersonFragment;
 import io.paperdb.Paper;

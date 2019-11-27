@@ -1,4 +1,4 @@
-package io.eberlein.debt;
+package io.eberlein.debt.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.eberlein.debt.R;
+import io.eberlein.debt.Utils;
 import io.eberlein.debt.settings.Setting;
 import io.eberlein.debt.settings.Settings;
 

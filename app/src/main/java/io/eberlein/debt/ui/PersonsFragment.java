@@ -19,10 +19,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.eberlein.debt.Person;
-import io.eberlein.debt.PersonAdapter;
 import io.eberlein.debt.Persons;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Utils;
+import io.eberlein.debt.adapters.PersonAdapter;
 import io.eberlein.debt.events.PersonAddedEvent;
 import io.eberlein.debt.events.PersonDeletedEvent;
 

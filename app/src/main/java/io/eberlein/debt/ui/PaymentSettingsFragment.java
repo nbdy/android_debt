@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.eberlein.debt.settings.PaymentSettings;
 import io.eberlein.debt.R;
-import io.eberlein.debt.SettingsAdapter;
+import io.eberlein.debt.adapters.SettingsAdapter;
+import io.eberlein.debt.settings.PaymentSettings;
 
 public class PaymentSettingsFragment extends Fragment {
     @BindView(R.id.recycler) RecyclerView recycler;

@@ -1,7 +1,6 @@
-package io.eberlein.debt;
+package io.eberlein.debt.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -20,6 +18,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
+import io.eberlein.debt.Profit;
+import io.eberlein.debt.Profits;
+import io.eberlein.debt.R;
+import io.eberlein.debt.Static;
 import io.eberlein.debt.events.ProfitDeletedEvent;
 import io.paperdb.Paper;
 

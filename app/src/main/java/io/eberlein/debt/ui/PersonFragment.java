@@ -24,9 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.eberlein.debt.Person;
-import io.eberlein.debt.ProfitAdapter;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Static;
+import io.eberlein.debt.adapters.ProfitAdapter;
 import io.eberlein.debt.events.ProfitDeletedEvent;
 import io.paperdb.Paper;
 
