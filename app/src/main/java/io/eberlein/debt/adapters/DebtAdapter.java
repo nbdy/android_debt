@@ -57,20 +57,20 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        private boolean extraMenuOpen = false;
         @BindView(R.id.payed)
         TextView payed;
-        private boolean extraMenuOpen = false;
 
         @BindView(R.id.amount) TextView amount;
-        private Debt debt;
         @BindView(R.id.why) TextView why;
+        private Debt debt;
         @BindView(R.id.timestamp) TextView timestamp;
         @BindView(R.id.currency) TextView currency;
         @BindView(R.id.delete) Button delete;
 
         @OnClick
         void onClick(){
-            if(!extraMenuOpen) {
+            if (!extraMenuOpen && !debt.isPayed()) {
                 AlertDialog.Builder b = new AlertDialog.Builder(ctx);
                 View v = LayoutInflater.from(ctx).inflate(R.layout.dialog_pay, null, false);
                 b.setPositiveButton("ok", new DialogInterface.OnClickListener() {
