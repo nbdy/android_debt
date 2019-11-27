@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.eberlein.debt.R;
-import io.eberlein.debt.Settings;
+import io.eberlein.debt.settings.Settings;
 import io.eberlein.debt.SettingsAdapter;
 
 public class SettingsFragment extends Fragment {

@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.eberlein.debt.settings.Setting;
+import io.eberlein.debt.settings.Settings;
 
 public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHolder> {
     private Context ctx;

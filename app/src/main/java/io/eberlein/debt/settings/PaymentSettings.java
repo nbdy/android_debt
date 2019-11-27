@@ -1,4 +1,4 @@
-package io.eberlein.debt;
+package io.eberlein.debt.settings;
 
 import java.util.ArrayList;
 

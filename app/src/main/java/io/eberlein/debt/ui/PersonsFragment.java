@@ -1,6 +1,7 @@
 package io.eberlein.debt.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import io.eberlein.debt.PersonAdapter;
 import io.eberlein.debt.Persons;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Utils;
+import io.eberlein.debt.events.PersonAddedEvent;
 import io.eberlein.debt.events.PersonDeletedEvent;
 
 public class PersonsFragment extends Fragment {
@@ -37,12 +39,18 @@ public class PersonsFragment extends Fragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(PersonDeletedEvent e){
+        Person p = e.getPerson();
+        Log.d("PersonsFragment.onEvent", "archiving '" + p.getName() + "'");
         persons.archive(e.getPerson());
         adapter.notifyDataSetChanged();
     }
 
-    public PersonsFragment(){
-        persons = Persons.get();
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(PersonAddedEvent e){
+        Person p = e.getPerson();
+        Log.d("PersonsFragment.onEvent", "adding '" + p.getName() + "'");
+        persons.add(e.getPerson());
+        adapter.notifyDataSetChanged();
     }
 
     @Nullable
@@ -50,6 +58,7 @@ public class PersonsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_persons, container, false);
         ButterKnife.bind(this, v);
+        persons = Persons.get();
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new PersonAdapter(getContext(), this, persons);
         recycler.setAdapter(adapter);

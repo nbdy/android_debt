@@ -38,6 +38,10 @@ public class Persons {
         Paper.book(Static.BOOK_PERSONS).delete(person.getKey());
     }
 
+    public void save(){
+        for(Person p : persons) p.save();
+    }
+
     Person get(int i){
         return persons.get(i);
     }
