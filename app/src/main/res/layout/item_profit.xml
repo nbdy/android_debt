@@ -4,7 +4,15 @@
 
     <TextView
         android:id="@+id/amount"
-        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/payed"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

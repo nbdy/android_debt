@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">debt</string>
     <string name="persons">persons</string>
-    <string name="profits">profits</string>
+    <string name="debts">debts</string>
     <string name="settings">settings</string>
     <string name="name">name</string>
     <string name="from">from</string>
@@ -11,6 +11,9 @@
     <string name="currency">currency</string>
     <string name="general">general</string>
     <string name="delete">delete</string>
+    <string name="cash">cash</string>
+    <string name="paypal">paypal</string>
+    <string name="bitcoin">bitcoin</string>
 
     <string-array name="currencies">
         <item>€</item>

@@ -2,19 +2,21 @@ package io.eberlein.debt;
 
 import java.util.Date;
 
-public class Profit {
+public class Debt {
     private double amount;
     private String why;
     private Date timestamp;
+    private boolean payed;
 
-    public Profit(){}
+    public Debt() {
+    }
 
-    public Profit(double amount){
+    public Debt(double amount) {
         this.amount = amount;
         timestamp = new Date();
     }
 
-    public Profit(double amount, String why){
+    public Debt(double amount, String why) {
         this.amount = amount;
         this.why = why;
         timestamp = new Date();
@@ -30,5 +32,13 @@ public class Profit {
 
     public Date getTimestamp() {
         return timestamp;
+    }
+
+    public boolean isPayed() {
+        return payed;
+    }
+
+    public void setPayed(boolean payed) {
+        this.payed = payed;
     }
 }

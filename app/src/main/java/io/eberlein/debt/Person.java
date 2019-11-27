@@ -8,24 +8,24 @@ public class Person {
     private String key;
     private String name;
     private String from;
-    private Profits profits;
+    private Debts debts;
 
     public Person(){
         key = UUID.randomUUID().toString();
-        profits = new Profits();
+        debts = new Debts();
     }
 
     public Person(String name){
         key = UUID.randomUUID().toString();
         this.name = name;
-        profits = new Profits();
+        debts = new Debts();
     }
 
     public Person(String name, String from){
         key = UUID.randomUUID().toString();
         this.name = name;
         this.from = from;
-        profits = new Profits();
+        debts = new Debts();
     }
 
     public String getName() {
@@ -48,20 +48,20 @@ public class Person {
         this.from = from;
     }
 
-    public Profit addProfit(double amount, String why){
-        return profits.add(amount, why);
+    public Debt addProfit(double amount, String why) {
+        return debts.add(amount, why);
     }
 
-    public void removeProfit(Profit p){
-        profits.remove(p);
+    public void removeProfit(Debt p) {
+        debts.remove(p);
     }
 
-    public Profits getProfits(){
-        return profits;
+    public Debts getDebts() {
+        return debts;
     }
 
     public double getDebt(){
-        return profits.getSum();
+        return debts.getSum();
     }
 
     public void save(){

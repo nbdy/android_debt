@@ -26,13 +26,14 @@ import butterknife.OnClick;
 import io.eberlein.debt.Person;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Static;
-import io.eberlein.debt.adapters.ProfitAdapter;
-import io.eberlein.debt.events.ProfitDeletedEvent;
+import io.eberlein.debt.adapters.DebtAdapter;
+import io.eberlein.debt.events.DebtDeletedEvent;
+import io.eberlein.debt.events.DebtPayedEvent;
 import io.paperdb.Paper;
 
 public class PersonFragment extends Fragment {
     private Person person;
-    private ProfitAdapter adapter;
+    private DebtAdapter adapter;
 
     @BindView(R.id.recycler) RecyclerView recycler;
     @BindView(R.id.name) EditText name;
@@ -67,10 +68,15 @@ public class PersonFragment extends Fragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onProfitDeleted(ProfitDeletedEvent e){
-        person.removeProfit(e.getProfit());
+    public void onProfitDeleted(DebtDeletedEvent e) {
+        person.removeProfit(e.getDebt());
         person.save();
         adapter.notifyDataSetChanged();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onDebtPayed(DebtPayedEvent e) {
+
     }
 
     public PersonFragment(Person person){
@@ -82,7 +88,7 @@ public class PersonFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_person, container, false);
         ButterKnife.bind(this, v);
-        adapter = new ProfitAdapter(getContext(), this.person.getProfits());
+        adapter = new DebtAdapter(getContext(), this.person.getDebts());
         name.setText(this.person.getName());
         from.setText(this.person.getFrom());
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));

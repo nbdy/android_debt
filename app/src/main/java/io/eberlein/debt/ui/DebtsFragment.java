@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.eberlein.debt.R;
 
-public class ProfitsFragment extends Fragment {
+public class DebtsFragment extends Fragment {
     @BindView(R.id.recycler) RecyclerView recycler;
 
     @Nullable
