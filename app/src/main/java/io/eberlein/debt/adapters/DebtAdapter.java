@@ -1,11 +1,13 @@
 package io.eberlein.debt.adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,28 +73,27 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
             if(!extraMenuOpen) {
                 AlertDialog.Builder b = new AlertDialog.Builder(ctx);
                 View v = LayoutInflater.from(ctx).inflate(R.layout.dialog_pay, null, false);
-                (v.findViewById(R.id.cash)).setOnClickListener(new View.OnClickListener() {
+                b.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        EventBus.getDefault().post(new DebtPayedEvent(debt));
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (((RadioButton) v.findViewById(R.id.cash)).isChecked()) {
+                            EventBus.getDefault().post(new DebtPayedEvent(debt));
+                            // todo maybe ask user if he wants to take a pic of the bounty
+                        } else if (((RadioButton) v.findViewById(R.id.paypal)).isChecked()) {
+                            Toast.makeText(ctx, "not implemeted", Toast.LENGTH_SHORT).show();
+                        } else if (((RadioButton) v.findViewById(R.id.bitcoin)).isChecked()) {
+                            Toast.makeText(ctx, "not implemented", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
                     }
                 });
-
-                (v.findViewById(R.id.paypal)).setOnClickListener(new View.OnClickListener() {
+                b.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        Toast.makeText(ctx, "not implemented", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                (v.findViewById(R.id.bitcoin)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(ctx, "not implemented", Toast.LENGTH_SHORT).show();
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 });
                 b.setView(v).show();
-                Toast.makeText(ctx, "to be implemented", Toast.LENGTH_SHORT).show();
             } else closeExtraMenu();
 
         }

@@ -76,7 +76,9 @@ public class PersonFragment extends Fragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onDebtPayed(DebtPayedEvent e) {
-
+        Log.d("PersonFragment.onDebtPayed", e.getDebt().getTimestamp().toString());
+        person.setDebtPayed(e.getDebt());
+        adapter.notifyDataSetChanged();
     }
 
     public PersonFragment(Person person){

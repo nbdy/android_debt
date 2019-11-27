@@ -43,4 +43,10 @@ public class Debts {
         return s;
     }
 
+    public void setDebtPayed(Debt debt) {
+        for (Debt d : debts) {
+            if (d.getTimestamp().equals(debt.getTimestamp())) d.setPayed(true);
+        }
+    }
+
 }

@@ -67,4 +67,8 @@ public class Person {
     public void save(){
         Paper.book(Static.BOOK_PERSONS).write(key, this);
     }
+
+    public void setDebtPayed(Debt d) {
+        debts.setDebtPayed(d);
+    }
 }
