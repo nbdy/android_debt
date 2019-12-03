@@ -41,9 +41,9 @@ public class PersonFragment extends Fragment {
 
     @OnClick(R.id.add)
     void add() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
         LayoutInflater i = requireActivity().getLayoutInflater();
-        View v = i.inflate(R.layout.dialog_profit, null, false);
+        View v = i.inflate(R.layout.dialog_debt, null, false);
         ((TextView) v.findViewById(R.id.currency)).setText(Paper.book(Static.BOOK_SETTINGS).read("currency", "€"));
         builder.setView(v)
                 .setPositiveButton("add", new DialogInterface.OnClickListener() {
@@ -51,8 +51,6 @@ public class PersonFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         double a = Double.valueOf(((EditText) v.findViewById(R.id.amount)).getText().toString());
                         String w = ((EditText) v.findViewById(R.id.why)).getText().toString();
-                        Log.d("PersonFragment.add.Dialog", String.valueOf(a));
-                        Log.d("PersonFragment.add.Dialog", w);
                         person.addProfit(a, w);
                         person.save();
                         adapter.notifyDataSetChanged();

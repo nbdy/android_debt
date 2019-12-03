@@ -26,6 +26,7 @@
         android:layout_below="@id/from"
         android:id="@+id/recycler"
         android:layout_width="match_parent"
+        style="@style/CustomRecyclerViewStyle"
         android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

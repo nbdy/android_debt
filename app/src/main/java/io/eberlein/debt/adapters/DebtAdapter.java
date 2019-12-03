@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,8 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setDebt(debts.get(position));
+        if ((position % 2) != 0) holder.layout.setBackgroundColor(Color.parseColor("#424242"));
+        else holder.layout.setBackgroundColor(Color.parseColor("#666666"));
     }
 
     @Override
@@ -60,6 +63,9 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
         private boolean extraMenuOpen = false;
         @BindView(R.id.payed)
         TextView payed;
+
+        @BindView(R.id.layout)
+        RelativeLayout layout;
 
         @BindView(R.id.amount) TextView amount;
         @BindView(R.id.why) TextView why;

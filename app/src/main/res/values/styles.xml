@@ -22,7 +22,10 @@
     </style>
 
     <style name="CustomRecyclerViewStyle">
-
+        <item name="android:background">@color/black</item>
     </style>
 
+    <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

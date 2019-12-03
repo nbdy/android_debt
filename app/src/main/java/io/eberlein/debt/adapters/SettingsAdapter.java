@@ -1,9 +1,11 @@
 package io.eberlein.debt.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +25,24 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
     private Fragment currentFragment;
     private Settings settings;
 
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.setSetting(settings.get(position));
+        if ((position % 2) != 0) holder.layout.setBackgroundColor(Color.parseColor("#424242"));
+        else holder.layout.setBackgroundColor(Color.parseColor("#666666"));
+    }
+
+    public SettingsAdapter(Context ctx, Fragment currentFragment, Settings settings) {
+        this.ctx = ctx;
+        this.currentFragment = currentFragment;
+        this.settings = settings;
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
         private Setting setting;
 
+        @BindView(R.id.layout)
+        RelativeLayout layout;
         @BindView(R.id.name) TextView name;
 
         @OnClick
@@ -42,17 +59,6 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
             setting = s;
             name.setText(setting.getName());
         }
-    }
-
-    public SettingsAdapter(Context ctx, Fragment currentFragment, Settings settings){
-        this.ctx = ctx;
-        this.currentFragment = currentFragment;
-        this.settings = settings;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.setSetting(settings.get(position));
     }
 
     @NonNull

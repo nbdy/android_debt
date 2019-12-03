@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,10 +41,19 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         currencyString = Paper.book(Static.BOOK_SETTINGS).read("currency", "€");
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull PersonAdapter.ViewHolder holder, int position) {
+        holder.setPerson(persons.get(position));
+        if ((position % 2) != 0) holder.layout.setBackgroundColor(Color.parseColor("#424242"));
+        else holder.layout.setBackgroundColor(Color.parseColor("#666666"));
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
         private Person person;
         private boolean extraMenuOpen = false;
 
+        @BindView(R.id.layout)
+        RelativeLayout layout;
         @BindView(R.id.name) TextView name;
         @BindView(R.id.debt) TextView debt;
         @BindView(R.id.currency) TextView currency;
@@ -94,11 +104,6 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             if(d < 0) debt.setTextColor(Color.RED);
             currency.setText(currencyString);
         }
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull PersonAdapter.ViewHolder holder, int position) {
-        holder.setPerson(persons.get(position));
     }
 
     @NonNull
