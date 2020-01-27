@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,12 +24,12 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.eberlein.debt.Person;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Static;
 import io.eberlein.debt.adapters.DebtAdapter;
 import io.eberlein.debt.events.DebtDeletedEvent;
 import io.eberlein.debt.events.DebtPayedEvent;
+import io.eberlein.debt.objects.Person;
 import io.paperdb.Paper;
 
 public class PersonFragment extends Fragment {
@@ -93,6 +94,7 @@ public class PersonFragment extends Fragment {
         from.setText(this.person.getFrom());
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         recycler.setAdapter(adapter);
+        recycler.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         return v;
     }
 

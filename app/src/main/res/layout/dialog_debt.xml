@@ -17,6 +17,7 @@
         android:layout_toEndOf="@id/currency"
         android:layout_marginEnd="8dp"
         android:hint="@string/amount"
+        style="@style/CustomEditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -27,6 +28,7 @@
         android:layout_marginStart="8dp"
         android:layout_below="@id/amount"
         android:hint="@string/why"
+        style="@style/CustomEditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

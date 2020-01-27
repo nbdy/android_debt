@@ -19,12 +19,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-import io.eberlein.debt.Person;
-import io.eberlein.debt.Persons;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Static;
 import io.eberlein.debt.Utils;
 import io.eberlein.debt.events.PersonDeletedEvent;
+import io.eberlein.debt.objects.Person;
+import io.eberlein.debt.objects.Persons;
 import io.eberlein.debt.ui.PersonFragment;
 import io.paperdb.Paper;
 
@@ -44,8 +44,6 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull PersonAdapter.ViewHolder holder, int position) {
         holder.setPerson(persons.get(position));
-        if ((position % 2) != 0) holder.layout.setBackgroundColor(Color.parseColor("#424242"));
-        else holder.layout.setBackgroundColor(Color.parseColor("#666666"));
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

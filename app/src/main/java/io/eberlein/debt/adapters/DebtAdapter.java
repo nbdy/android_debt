@@ -22,12 +22,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-import io.eberlein.debt.Debt;
-import io.eberlein.debt.Debts;
 import io.eberlein.debt.R;
 import io.eberlein.debt.Static;
 import io.eberlein.debt.events.DebtDeletedEvent;
 import io.eberlein.debt.events.DebtPayedEvent;
+import io.eberlein.debt.objects.Debt;
+import io.eberlein.debt.objects.Debts;
 import io.paperdb.Paper;
 
 public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
@@ -50,8 +50,6 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setDebt(debts.get(position));
-        if ((position % 2) != 0) holder.layout.setBackgroundColor(Color.parseColor("#424242"));
-        else holder.layout.setBackgroundColor(Color.parseColor("#666666"));
     }
 
     @Override
@@ -146,7 +144,6 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
             currency.setText(currencyString);
             payed.setText(p.isPayed() ? "payed" : "unpayed");
             if (!p.isPayed()) payed.setTextColor(Color.RED);
-            else payed.setTextColor(Color.BLACK);
         }
     }
 

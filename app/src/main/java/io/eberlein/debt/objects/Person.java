@@ -1,7 +1,8 @@
-package io.eberlein.debt;
+package io.eberlein.debt.objects;
 
 import java.util.UUID;
 
+import io.eberlein.debt.Static;
 import io.paperdb.Paper;
 
 public class Person {

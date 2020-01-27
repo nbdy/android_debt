@@ -1,6 +1,6 @@
 package io.eberlein.debt.events;
 
-import io.eberlein.debt.Person;
+import io.eberlein.debt.objects.Person;
 
 public class PersonAddedEvent {
     private Person person;

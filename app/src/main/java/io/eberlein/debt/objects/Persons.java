@@ -1,10 +1,11 @@
-package io.eberlein.debt;
+package io.eberlein.debt.objects;
 
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.eberlein.debt.Static;
 import io.paperdb.Paper;
 
 public class Persons {

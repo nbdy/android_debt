@@ -1,6 +1,6 @@
 package io.eberlein.debt.events;
 
-import io.eberlein.debt.Debt;
+import io.eberlein.debt.objects.Debt;
 
 public class DebtPayedEvent {
     private Debt debt;

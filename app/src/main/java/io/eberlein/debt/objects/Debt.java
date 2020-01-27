@@ -1,4 +1,4 @@
-package io.eberlein.debt;
+package io.eberlein.debt.objects;
 
 import java.util.Date;
 
