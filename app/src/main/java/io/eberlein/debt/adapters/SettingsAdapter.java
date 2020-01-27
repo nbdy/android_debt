@@ -1,7 +1,6 @@
 package io.eberlein.debt.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +27,6 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setSetting(settings.get(position));
-        if ((position % 2) != 0) holder.layout.setBackgroundColor(Color.parseColor("#424242"));
-        else holder.layout.setBackgroundColor(Color.parseColor("#666666"));
     }
 
     public SettingsAdapter(Context ctx, Fragment currentFragment, Settings settings) {

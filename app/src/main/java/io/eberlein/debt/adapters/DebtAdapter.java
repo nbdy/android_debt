@@ -138,7 +138,6 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
             double a = p.getAmount();
             amount.setText(String.valueOf(a));
             if(a < 0) amount.setTextColor(Color.RED);
-            else amount.setTextColor(Color.BLACK);
             why.setText(p.getWhy());
             timestamp.setText(p.getTimestamp().toString());
             currency.setText(currencyString);
