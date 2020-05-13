@@ -75,7 +75,7 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
         @OnClick
         void onClick(){
             if (!extraMenuOpen && !debt.isPayed()) {
-                AlertDialog.Builder b = new AlertDialog.Builder(ctx);
+                AlertDialog.Builder b = new AlertDialog.Builder(ctx, R.style.CustomDialog);
                 View v = LayoutInflater.from(ctx).inflate(R.layout.dialog_pay, null, false);
                 b.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
